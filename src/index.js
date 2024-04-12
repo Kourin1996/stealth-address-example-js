@@ -42,8 +42,10 @@ async function main() {
   const stealthPrivateKey =
     ethers.toBigInt(rootPrivKeyHex) +
     ethers.toBigInt(ethers.keccak256(sharedSecret1));
+
+  const rawStealthPrivateKey = stealthPrivateKey.valueOf().toString(16);
   const stealthPrivateKeyHex =
-    "0x" + stealthPrivateKey.valueOf().toString(16).slice(0, 64);
+    "0x" + rawStealthPrivateKey.slice(rawStealthPrivateKey.length - 64);
 
   const stealthConvertedPublicKey = ethers.SigningKey.computePublicKey(
     stealthPrivateKeyHex,
