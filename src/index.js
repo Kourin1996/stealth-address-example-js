@@ -1,7 +1,4 @@
 import { ethers } from "ethers";
-import EC from "elliptic";
-
-const secp256k1 = new EC.ec("secp256k1");
 
 // create stealth account by ethers
 async function main() {
